@@ -1,0 +1,135 @@
+body {
+
+	background: #F3F5FC;
+
+}
+
+.caja {
+
+	position: relative;
+	margin: 0 auto;
+}
+
+.caja h1{
+
+	position: absolute;
+	width: 120px;
+	height: 48px;
+	left: 40px;
+	top: 40px;
+
+}
+
+
+#texto-encriptar {
+
+	position: absolute;
+	width: 577px;
+	height: 48px;
+	left: 240px;
+	top: 168px;
+	font-family: 'Inter';
+	font-weight: 400;
+	font-size: 32px;
+	line-height: 150%;
+	background: #F3F5FC;
+	color: #0A3871;
+	border:none;
+	outline:none;
+	column-span: all;
+		
+}
+
+#texto-resultado {
+	position: absolute;
+	background: #FFFFFF;
+	background-image: url(imagenes/Muñeco.png);
+	background-repeat: no-repeat;
+	width: 400px;
+	height: 944px;
+	left: 1000px;
+	top: 40px;
+	box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+	border:none;
+	outline:none;
+	border-radius: 24px;
+}
+
+.botones {
+
+	display: inline-block;
+	position: absolute;
+	width: 680px;
+	height: 67px;
+	left: 240px;
+	top: 885px;
+}
+
+#boton-encriptar {
+	width: 280px;
+	height: 19px;
+	padding: 24px;	
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 19px;
+	text-align: center;
+	color: #ffffff;
+	gap: 8px;
+	width: 328px;	
+	height: 67px;
+	background:#0A3871;
+	border: none;
+	border-radius: 24px;
+}
+
+
+#boton-desencriptar {
+	width: 280px;
+	height: 19px;
+	padding: 24px;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 19px;
+	text-align: center;
+	color: #0A3871;
+	gap: 8px;
+	width: 328px;	
+	height: 67px;
+	border: 1px solid #0A3871;
+	border-radius: 24px;
+}
+
+#boton-copiar {
+
+	position: absolute;
+	width: 336px;
+	height: 67px;
+	left: 1018px;
+	top: 885px;
+	width: 280px;
+	height: 19px;
+	padding: 24px;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 19px;
+	text-align: center;
+	color: #0A3871;
+	gap: 8px;
+	width: 328px;	
+	height: 67px;
+	border: 1px solid #0A3871;
+	border-radius: 24px;
+}
+
+.copyright {
+
+	position: absolute;
+	width: 336px;
+	height: 67px;
+	left: 620px;
+	top: 1000px;
+	text-align: center;
+	color:#0A3871;
+	font-weight: bold;
+	font-size: 16px;
+}

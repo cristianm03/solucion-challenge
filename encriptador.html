@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang= "es">
+	
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<title> Encriptador Alura </title>
+		<link rel="stylesheet" href="reset.css">
+		<link rel="stylesheet" href="style.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+	</head>
+
+	<body>
+		
+			<header>
+				<div class="caja">
+				<h1><img src="imagenes/logo.png" alt="logo alura"></h1>
+				</div>
+			</header>
+		<main>
+			<div>
+				<textarea id="texto-encriptar" cols="30" rows="10" onkeyup="textoMin()" placeholder="Ingrese el texto aqui"></textarea>
+				<input type="text" id="texto-resultado">
+			</div>
+			<div class="botones">
+				<button id="boton-encriptar">Encriptar</button>
+				<button id="boton-desencriptar">Desencriptar</button>
+			</div>
+			<div>	
+				<button id="boton-copiar" >Copiar</button>
+			</div>
+			</main>
+		<footer>
+		<p class="copyright">Cristian Gabriel Mayorga Sierra - 2023</p>
+		</footer>	
+	<script>
+	var vocales = ['a','e','i','o','u'];
+	var resultado = ['ai','enter','imes','ober','ufat'];		
+	
+	//creo que la funcion si el usuario ingresa palabras en mayuscula las convierta a minusculas
+
+	function textoMin () {
+
+	let textoMinuscula=document.getElementById("texto-encriptar");
+	textoMinuscula.value=textoMinuscula.value.toLowerCase();
+	}
+
+	function BorrarImgTexto() {
+		let img =document.getElementById("texto-resultado");
+		img.style.backgroundImage="none";
+		var textoEncriptar = document.getElementById("texto-encriptar");
+		textoEncriptar.value="";
+	}
+	
+	function encriptarTexto () {
+			var textoEncriptar = document.getElementById("texto-encriptar").value;
+			aux = "";
+//Esta vez vamos a analizar letra por letra de nuestro mensaje, si es vocal se realiza el cambio sino se deja igual
+			for(var i=0;i < textoEncriptar.length;i++){
+  				letra = textoEncriptar[i];
+//Con includes verificamos que la vocal o letra se encuentre en el array vocales si es diferente a 0 entonces la letra es una vocal
+				if(vocales.includes(letra)){
+				    index = vocales.indexOf(letra); //Con index of nos arroja el indice donce esta la vocal y ese mismo indice es el que esta en RESULTADO
+    				letra = resultado[index];
+  				}		
+  					aux = aux + letra; //ponemos la letra o palabra en caso que sea vocal
+					textoEncriptar.value="";
+			}
+		// mostrar el resultado del texto encriptado
+			var encriptar =  document.getElementById("texto-resultado");
+			encriptar.setAttribute("value",aux);
+		}
+
+		function clic () {
+			encriptarTexto();
+			BorrarImgTexto();
+		}
+// funcion desencriptar texto
+		function desencriptarTexto () {
+			var textoEncriptar = document.getElementById("texto-encriptar");
+			textoEncriptar = textoEncriptar.value;
+				for(var i=0;i < textoEncriptar.length;i++){
+				textoEncriptar = textoEncriptar.replaceAll(resultado[i],vocales[i]);
+		  		}
+// mostrar el resultado del texto desencriptado
+				var desencriptar =  document.getElementById("texto-resultado");
+				desencriptar.setAttribute("value",textoEncriptar);
+			}
+
+			function copiarTexto () {
+			var textoCopiar = document.getElementById("texto-resultado"); // seleccionamos el texto que deseamos copiar en este caso el texto encriptado
+			textoCopiar.select();//seleccione el contenido a copiar en este caso el resultado del texto encriptado
+			document.execCommand('copy');// le damos la orden de copiar texto
+
+			alert("el texto fue copiado con éxito"); // genero un mensaje que informe que el texto se copio con extito
+		}
+
+var botonEncriptar = document.getElementById("boton-encriptar");
+botonEncriptar.onclick = clic; // llamamos la funcion en el momento que el usuario desee encriptar el texto,en el evento cuando de clic
+var botonDesencriptar = document.getElementById("boton-desencriptar");
+botonDesencriptar.onclick = desencriptarTexto; // llamamos la funcion en el momento que el usuario desee desencriptar el texto,en el evento cuando de clic
+var botonCopiar = document.getElementById("boton-copiar");
+botonCopiar.onclick = copiarTexto; // llamamos la funcion en el momento que el usuario desee copiar el texto encriptado,en el evento cuando de clic
+
+		</script>
+	</body>
+</html>
+
